@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href="css/style.css">
+    <title>Notes</title>
+</head>
+<body>
+<header>
+    <div class="ctrl-panel">
+        <button class="add btn">
+            <span class="plus">+</span>
+        </button>
+        <div>
+        <select id="subject">
+            <option value="general">Общее</option>
+            <option value="study">Учеба</option>
+            <option value="QA">Тестирование</option>
+            <option value="SEO">Тексты</option>
+          </select>
+          <button id="add_subject">Добавить тему</button>
+          <form name="subject" id="subject-form" action="">
+            <input name="title" placeholder="Название темы" type="text">
+            <input name="value" placeholder="Ключ темы" type="text">
+            <button id="subject-form__btn" type="submit"> Подтвердить</button>
+          </form>
+          </div>
+        <label class="switch tooltip" data-tooltip="Переключить тему">
+            <input class="cb" type="checkbox">
+            <span class="slider round"></span>
+          </label>
+    </div>
+</header>
+<div class="sheet"></div>
+<main class="container">
+    <div class="notes"></div>
+</main>
+<script src="script.js"></script>
+<!-- <script src="backup parser/backup_script.js"></script> -->
+</body>
+</html>
+
+<!-- box-sizing уточнить про шрифты line-height-->
