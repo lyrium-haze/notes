@@ -25,6 +25,9 @@ function themeChecker()
 
 // Subject-checker and load
 let subject;
+subject = document.getElementById('subject');
+if(localStorage.getItem('subject') != null)
+    subject.innerHTML = localStorage.getItem('subject');
 let notes;
 function loadSaved() {
     subject = document.getElementById('subject');
@@ -45,7 +48,6 @@ function loadSaved() {
 loadSaved();
 themeChecker();
 subject.addEventListener('change', loadSaved);
-
 
 // Add note
 const add = document.querySelector('.add');
@@ -169,16 +171,29 @@ function addNewSubject(ev)
     ev.preventDefault();
     let value = document.forms.subject.value.value;
     let title = document.forms.subject.title.value;
-
+    if (localStorage.getItem(title) != null) {
+        alert('Такая тема уже есть!');
+        return;
+    }
     let option = new Option(title, value);
     subject.append(option);
     subject_form.style.display = 'none';
     add_subject.style.display = 'inline';
+    localStorage.setItem('subject', subject.innerHTML);
 }
-
 let add_subject = document.getElementById('add_subject');
 add_subject.addEventListener('click', () => {
     subject_form.style.display = 'block';
     add_subject.style.display = 'none';
 });
+
+let delete_subject = document.getElementById('delete_subject');
+delete_subject.addEventListener('click', () => {
+    if (confirm('Are you sure you want to delete this subject?')){
+        let current_option = subject.options[ subject.selectedIndex ];
+        localStorage.removeItem(current_option.value);
+        current_option.remove();
+        localStorage.setItem('subject', subject.innerHTML);
+    }
+})
 }
