@@ -253,7 +253,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
   }
-  #add_subject {
+.action_btn {
     padding: 5px;
     border: 1px dimgrey solid;
     border-radius: 5px;
