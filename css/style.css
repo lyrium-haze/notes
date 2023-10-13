@@ -121,6 +121,15 @@ body {
     overflow: scroll;
     background-color:var(--main-color);
 }
+@media (max-width: 767px) {
+  .note {
+    flex: 0 1 80%;
+  }
+  .note_active {
+    left: 10vw;
+    width: 80vw;
+  }
+}
 .panel {
     position: absolute;
     right: 20vw;
