@@ -171,7 +171,7 @@ function addNewSubject(ev)
     ev.preventDefault();
     let value = document.forms.subject.value.value;
     let title = document.forms.subject.title.value;
-    if (localStorage.getItem(title) != null) {
+    if (localStorage.getItem(value) != null) {
         alert('Такая тема уже есть!');
         return;
     }
@@ -180,6 +180,7 @@ function addNewSubject(ev)
     subject_form.style.display = 'none';
     add_subject.style.display = 'inline';
     localStorage.setItem('subject', subject.innerHTML);
+    localStorage.setItem(value, ``);
 }
 let add_subject = document.getElementById('add_subject');
 add_subject.addEventListener('click', () => {
